@@ -5,8 +5,8 @@ int main() {
 
 
     char estado; /*Escolher uma letra de A a H*/
-    char codigo[3];/*A letra do estado seguida de um numero de 01 a 04*/
-    char nome[20]; /*Nome da cidade */
+    char codigo;/*A letra do estado seguida de um numero de 01 a 04*/
+    char nome; /*Nome da cidade */
     int populacao; /*O número de habitantes da cidade.*/
     float area; /*A área da cidade em quilômetros quadrados*/
     float pib; /*O Produto Interno Bruto da cidade.*/
