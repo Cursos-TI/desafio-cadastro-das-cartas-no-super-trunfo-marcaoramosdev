@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
     char estado1[3], estado2[3];         
@@ -16,9 +18,31 @@ int main() {
 
     int opcao;
 
+    int resultado1, resultado2;
+    char PrimeiroAtributo, SegundoAtributo;
+    int Ataque1, Ataque2, Defesa1, Defesa2, ContraAtaque1, ContraAtaque2;
+
+    Ataque1 = (populacaoc1 + areac1);
+    Ataque2 = (populacaoc2 + areac2);
+    Defesa1 = (populacaoc1 + pibc1);
+    Defesa2 = (populacaoc2 + pibc2);
+    ContraAtaque1 = (populacaoc1+ SuperPoderc1);
+    ContraAtaque1 = (populacaoc2 + SuperPoderc2);
+
+        srand(time(0));
+        Ataque1 = rand() % 100 + 1;
+        Ataque2 = rand() % 100 + 1;
+        Defesa1 = rand() % 100 + 1;
+        Defesa2 = rand() % 100 + 1;
+        ContraAtaque1 = rand() % 100 + 1;
+        ContraAtaque2 = rand() % 100 + 1;
+
+        
     printf("===== SUPER TRUNFO =====\n");
 
-    // --- Carta 1 ---
+    printf("  ===*** FASE 1 ***===\n");
+
+    
     printf("\n--- Carta 1 ---\n");
     printf("Estado: "); scanf(" %s", estado1);
     printf("Codigo: "); scanf(" %s", codigo1);
@@ -39,7 +63,7 @@ int main() {
     
     printf("\n");
     
-    // --- Carta 2 ---
+
     printf("\n--- Carta 2 ---\n");
     printf("Estado: "); scanf(" %s", estado2);
     printf("Codigo: "); scanf(" %s", codigo2);
@@ -60,7 +84,7 @@ int main() {
     
     printf("\n");
 
-    // --- Menu ---
+    
     printf("\n===== MENU DE COMPARACAO =====\n");
     printf("1. Populacao\n");
     printf("2. Area\n");
@@ -72,7 +96,10 @@ int main() {
     printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
 
+
+    printf("  ===*** FASE 2 ***===\n");
     printf("\n===== RESULTADO =====\n");
+
 
     switch(opcao) {
         case 1: // População
@@ -142,7 +169,103 @@ int main() {
 
         default:
             printf("Opcao invalida!\n");
+
+            break;
+    } 
+
+    
+    printf("\n===*** FASE 3 ***===\n");
+    printf("    O Ataque Final\n");
+
+    printf("Faça sua primeira escolha!\n");
+    printf("A. Ataque\n");
+    printf("D. Defesa\n");
+    printf("C. Contra ataque\n");
+
+    printf("Vamos ao combate!\n");
+    scanf(" %c", &PrimeiroAtributo);
+
+    switch (PrimeiroAtributo)
+    {
+    case 'A':
+    case 'a':
+        printf("Você escolheu atacar\n");
+        resultado1 = Ataque1 > Ataque2 ? 1 : 0;
+
+        break;
+
+    case 'D':
+    case 'd':
+        printf("Você escolheu se defender\n");
+        resultado1 = Defesa1 > Defesa2 ? 1 : 0;
+
+        break;
+
+    case 'C':
+    case 'c':
+        printf("Você escolheu Contra atacar\n");
+        resultado1 = ContraAtaque1 > ContraAtaque2 ? 1 : 0;
+
+        break;
+    
+    default:
+        printf("Opção inválida!\n");
+        break;
+        
     }
+
+
+    printf("\nFaça sua segunda escolha!\n");
+    printf(" ***ATENÇÃO*** ");
+    printf("Deve ser um atributo diferente do primeiro!\n");
+    printf("A. Ataque\n");
+    printf("D. Defesa\n");
+    printf("C. Contra ataque\n");
+
+    printf("Vamos ao combate!\n");
+    scanf(" %c", &SegundoAtributo);
+
+    if(PrimeiroAtributo == SegundoAtributo){
+        printf("Você escolheu o mesmo atributo!\n");
+    } else { 
+        switch (SegundoAtributo){
+    case 'A':
+    case 'a':
+        printf("Você escolheu atacar\n");
+        resultado2 = Ataque1 > Ataque2 ? 1 : 0;
+
+        break;
+
+    case 'D':
+    case 'd':
+        printf("Você escolheu se defender\n");
+        resultado2 = Defesa1 > Defesa2 ? 1 : 0;
+
+        break;
+
+    case 'C':
+    case 'c':
+        printf("Você escolheu Contra atacar\n");
+        resultado2 = ContraAtaque1 > ContraAtaque2 ? 1 : 0;
+
+        break;
+    
+    default:
+        printf("Opção inválida!\n");
+        break;
+        
+    }
+    if(resultado1 && resultado2){
+        printf("Parabéns, você venceu!\n");
+    } else if (resultado1 != resultado2){
+        printf("O jogo empatou!\n");
+    } else {
+        printf("Infelizmente, você perdeu!\n");
+    }
+
+}    
+
+           
 
     return 0;
 }
